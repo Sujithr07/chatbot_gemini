@@ -1,9 +1,19 @@
 from google import genai
 from pydantic import BaseModel
+import enum
+
+class Grade(enum.Enum):
+    A_plus= "a+"
+    A="a"
+    B="b"
+    C="c"
+    D="d"
+
 
 class Recipe(BaseModel):
     recipe_name: str
     ingredients: list[str]
+    rating: Grade
 
 client= genai.Client()
 
